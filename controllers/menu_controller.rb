@@ -89,9 +89,21 @@ class MenuController
 
     def entry_by_number
       puts "Please enter number: "
+<<<<<<< HEAD
       number = gets.chomp
       if number.is_a? Numeric
         print number
+=======
+      number = gets.chomp.to_i
+      if number < @address_book.entries.count
+        puts @address_book.entries[number]
+        puts "Press enter to return to the main menu"
+        gets.chomp
+        system "clear"
+      else
+        puts "#{number} is an invalid selection."
+        entry_by_number
+>>>>>>> menuone
       end
     end
 
