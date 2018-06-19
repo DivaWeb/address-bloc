@@ -52,81 +52,77 @@ class MenuController
       main_menu
 
     end
-    end
+  end
 
-    def view_all_entries
-      address_book.entries.each do |entry|
-        system "clear"
-        puts entry.to_s
-        entry_submenu(entry)
+  def view_all_entries
+    address_book.entries.each do |entry|
+      system "clear"
+      puts entry.to_s
+      entry_submenu(entry)
     end
     system "clear"
     puts "End of entries"
   end
 
-    def create_entry
+  def create_entry
+    system "clear"
+    puts "New AddressBloc Entry"
+    print "Name: "
+    name = gets.chomp
+    print "Phone number: "
+    phone = gets.chomp
+    print "Email: "
+    email = gets.chomp
+
+    address_book.add_entry(name, phone, email)
+
+    system "clear"
+    puts "New entry created"
+
+  end
+
+  def search_entries
+  end
+
+  def read_csv
+  end
+
+  def entry_by_number
+    puts "Please enter number: "
+
+    number = gets.chomp.to_i
+    if number < @address_book.entries.count
+      puts @address_book.entries[number]
+      puts "Press enter to return to the main menu"
+      gets.chomp
       system "clear"
-      puts "New AddressBloc Entry"
-      print "Name: "
-      name = gets.chomp
-      print "Phone number: "
-      phone = gets.chomp
-      print "Email: "
-      email = gets.chomp
+    else
+      puts "#{number} is an invalid selection."
+      entry_by_number
+      menuone
+    end
+  end
 
-      address_book.add_entry(name, phone, email)
 
+  def entry_submenu
+    puts "n - next entry"
+    puts "d - delete entry"
+    puts "e - edit this entry"
+    puts "m - return to main menu"
+
+    selection = gets.chomp
+
+    case selection
+    when "n"
+    when "d"
+    when "e"
+    when "m"
       system "clear"
-      puts "New entry created"
-
+      main_menu
+    else
+      system "clear"
+      puts "#{selection} is not a valid input"
+      entry_submenu(entry)
     end
-
-    def search_entries
-    end
-
-    def read_csv
-    end
-
-    def entry_by_number
-      puts "Please enter number: "
-<<<<<<< HEAD
-      number = gets.chomp
-      if number.is_a? Numeric
-        print number
-=======
-      number = gets.chomp.to_i
-      if number < @address_book.entries.count
-        puts @address_book.entries[number]
-        puts "Press enter to return to the main menu"
-        gets.chomp
-        system "clear"
-      else
-        puts "#{number} is an invalid selection."
-        entry_by_number
->>>>>>> menuone
-      end
-    end
-
-
-    def entry_submenu
-      puts "n - next entry"
-      puts "d - delete entry"
-      puts "e - edit this entry"
-      puts "m - return to main menu"
-
-      selection = gets.chomp
-
-      case selection
-      when "n"
-      when "d"
-      when "e"
-      when "m"
-        system "clear"
-        main_menu
-      else
-        system "clear"
-        puts "#{selection} is not a valid input"
-        entry_submenu(entry)
-      end
-    end
+  end
 end
