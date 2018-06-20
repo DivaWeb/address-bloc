@@ -87,7 +87,6 @@ class MenuController
   def read_csv
   end
 
-<<<<<<< HEAD
   def entry_by_number
     puts "Please enter number: "
 
@@ -101,22 +100,6 @@ class MenuController
       puts "#{number} is an invalid selection."
       entry_by_number
       menuone
-=======
-    def entry_by_number
-      puts "Please enter number: "
-
-      number = gets.chomp.to_i
-      if number < @address_book.entries.count
-        puts @address_book.entries[number]
-        puts "Press enter to return to the main menu"
-        gets.chomp
-        system "clear"
-      else
-        puts "#{number} is an invalid selection."
-        entry_by_number
-         menuone
-      end
->>>>>>> csv
     end
   end
 
