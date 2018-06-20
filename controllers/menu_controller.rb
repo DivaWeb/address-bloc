@@ -52,40 +52,40 @@ class MenuController
       main_menu
 
     end
-    end
+  end
 
-    def view_all_entries
-      address_book.entries.each do |entry|
-        system "clear"
-        puts entry.to_s
-        entry_submenu(entry)
+  def view_all_entries
+    address_book.entries.each do |entry|
+      system "clear"
+      puts entry.to_s
+      entry_submenu(entry)
     end
     system "clear"
     puts "End of entries"
   end
 
-    def create_entry
-      system "clear"
-      puts "New AddressBloc Entry"
-      print "Name: "
-      name = gets.chomp
-      print "Phone number: "
-      phone = gets.chomp
-      print "Email: "
-      email = gets.chomp
+  def create_entry
+    system "clear"
+    puts "New AddressBloc Entry"
+    print "Name: "
+    name = gets.chomp
+    print "Phone number: "
+    phone = gets.chomp
+    print "Email: "
+    email = gets.chomp
 
-      address_book.add_entry(name, phone, email)
+    address_book.add_entry(name, phone, email)
 
-      system "clear"
-      puts "New entry created"
+    system "clear"
+    puts "New entry created"
 
-    end
+  end
 
-    def search_entries
-    end
+  def search_entries
+  end
 
-    def read_csv
-    end
+  def read_csv
+  end
 
     def entry_by_number
       puts "Please enter number: "
@@ -102,27 +102,28 @@ class MenuController
          menuone
       end
     end
+  end
 
 
-    def entry_submenu
-      puts "n - next entry"
-      puts "d - delete entry"
-      puts "e - edit this entry"
-      puts "m - return to main menu"
+  def entry_submenu
+    puts "n - next entry"
+    puts "d - delete entry"
+    puts "e - edit this entry"
+    puts "m - return to main menu"
 
-      selection = gets.chomp
+    selection = gets.chomp
 
-      case selection
-      when "n"
-      when "d"
-      when "e"
-      when "m"
-        system "clear"
-        main_menu
-      else
-        system "clear"
-        puts "#{selection} is not a valid input"
-        entry_submenu(entry)
-      end
+    case selection
+    when "n"
+    when "d"
+    when "e"
+    when "m"
+      system "clear"
+      main_menu
+    else
+      system "clear"
+      puts "#{selection} is not a valid input"
+      entry_submenu(entry)
     end
+  end
 end
