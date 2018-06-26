@@ -44,7 +44,7 @@ class MenuController
       main_menu
     when 6
       system "clear"
-      @entries_book.nuke
+      @address_book.nuke
       puts "All entries deleted"
       main_menu
     when 7
